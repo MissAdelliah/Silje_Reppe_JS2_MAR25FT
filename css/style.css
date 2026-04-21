@@ -1,0 +1,38 @@
+* {
+  font-family: 'Inter', sans-serif, Tahoma, Geneva, Verdana;
+  box-sizing: border-box;
+}
+
+:root {
+  /********** FONT WEIGHTS **********/
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /********** MOBILE SIZES **********/
+  --fs-h1-mobile: 2rem; /* 32px */
+  --fs-h2-mobile: 1.25rem; /* 20px */
+
+  --fs-body-mobile: 1rem; /* 16px */
+  --fs-readers-mobile: 1.5rem; /* 24px */
+  --fs-meta-mobile: 1rem; /* 16px */
+  --fs-username-mobile: 1rem; /* 16px */
+  --fs-leader-mobile: 0.875rem; /* 14px */
+  --fs-footer-mobile: 1rem; /* 16px */
+  --fs-button-mobile: 1rem; /* 16px */
+
+  /***** DESKTOP SIZES *****/
+
+  /******* COLORS ******/
+  --ink: #1f1f1f;
+  --bg: #f9f9f9;
+  --gray-400: #999999;
+  --gray-200: #f0f2f5;
+  --gray-600: #262626;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
