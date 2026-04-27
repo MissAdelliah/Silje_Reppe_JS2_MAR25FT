@@ -4,30 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Comit</title>
-    <link rel="stylesheet" href="./styles/style.css" />
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/index.js" defer></script>
   </head>
 
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <h1 class="logo">Comit</h1>
-        <nav class="nav">
-          <a href="#/" data-link class="date-link">Feed</a>
-          <a href="#/login" data-link class="date-link">Login</a>
-          <a href="#/register" data-link class="date-link">Register</a>
-          <a href="#/profile" data-link class="date-link">Profile</a>
-          <a href="#/create-post" data-link class="date-link">Create</a>
-        </nav>
-      </div>
+  <body class="page--white">
+    <header>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__brand" href="/index.html">
+          <img class="nav__logo" src="./logo/logo.png" alt="Comit logo" />
+        </a>
+        <button
+          class="nav__button--hamburger"
+          id="nav-menu-btn"
+          type="button"
+          aria-label="Menu"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img src="./icons/menu.png" alt="" aria-hidden="true" />
+        </button>
+      </nav>
+      <div class="nav-dropdown" id="nav-dropdown" hidden></div>
     </header>
-    <main id="app" class="app-container">
-      <!----- JS will be injected here ----->
+    <main class="feed">
+      <section class="feed-controls" aria-label="Filter posts">
+        <div class="feed-controls__row">
+          <h3 class="feed-controls__title">Filter</h3>
+
+          <nav
+            class="filter-buttons"
+            id="tag-nav"
+            aria-label="Tag filters"
+          ></nav>
+        </div>
+      </section>
     </main>
-    <footer class="site-footer">
-      <div class="container">
-        <p>JavaScript 2 Course Assignment</p>
+    <footer class="footer">
+      <div class="footer__middle">
+        <a class="nav__brand" href="#/">
+          <img
+            class="nav__logo"
+            src="./logo/logo.png"
+            alt="Brand the comit logo "
+          />
+        </a>
+        <p>Terms & conditions</p>
+        <p>Contact us</p>
+        <p>comitsupport@gmail.com</p>
+        <div class="footer__icons">
+          <img src="./icons/insta.png" alt="Instagram" />
+          <img src="./icons/tiktok.png" alt="Instagram" />
+          <img src="./icons/facebook.png" alt="Instagram" />
+        </div>
+        <p class="website__rights--text">&copy; 2026 COMIT</p>
       </div>
     </footer>
-    <script type="module" src="./js/app.js"></script>
   </body>
 </html>
