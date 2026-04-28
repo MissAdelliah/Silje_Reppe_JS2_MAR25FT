@@ -9,11 +9,71 @@
     <script type="module" src="../js/register.js" defer></script>
   </head>
   <body class="page--white">
-    <main class="welcome">
+    <main class="auth">
       <section class="text">
         <h1>Register</h1>
         <p>As you register you agree to make a Noroff account.</p>
       </section>
+      <section class="account__card" aria-label="Login form">
+        <form id="login-form" class="auth__form">
+          <label class="form__text" for="email">Your email</label>
+          <input
+            class="auth__input"
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+
+          <div class="password-label-row">
+            <label class="form__text" for="password">Password</label>
+
+            <button
+              type="button"
+              class="password-toggle"
+              aria-label="Show password"
+            >
+              <img
+                class="password-icon"
+                src="../icons/closedeye.png"
+                alt=""
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          <input
+            class="auth__input"
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+            minlength="8"
+          />
+          <button class="btn btn--primary" type="submit">Continue</button>
+          <a class="directions_pages" href="./login.html">
+            I have an account
+          </a>
+          <p class="message" id="message"></p>
+        </form>
+      </section>
     </main>
+    <footer class="footer">
+      <div class="footer__middle">
+        <a class="nav__brand" href="#/">
+          <img
+            class="nav__logo"
+            src="../icons/logo.png"
+            alt="Brand the comit logo "
+          />
+        </a>
+        <p>Terms & conditions</p>
+        <p>Contact us</p>
+        <p>comitsupport@gmail.com</p>
+        <p class="website__rights--text">&copy; 2026 COMIT</p>
+      </div>
+    </footer>
   </body>
 </html>
