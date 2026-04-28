@@ -14,13 +14,8 @@
   --fs-h1-mobile: 2rem; /* 32px */
   --fs-h2-mobile: 1.25rem; /* 20px */
 
-  --fs-body-mobile: 1rem; /* 16px */
-  --fs-readers-mobile: 1.5rem; /* 24px */
-  --fs-meta-mobile: 1rem; /* 16px */
-  --fs-username-mobile: 1rem; /* 16px */
-  --fs-leader-mobile: 0.875rem; /* 14px */
-  --fs-footer-mobile: 1rem; /* 16px */
-  --fs-button-mobile: 1rem; /* 16px */
+  --fs-bigstan-mobile: 1rem; /* 16px */
+  --fs-stan-mobile: 0.875rem; /* 14px */
 
   /***** DESKTOP SIZES *****/
 
@@ -33,6 +28,235 @@
 }
 
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
   background: var(--bg);
   color: var(--ink);
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text {
+  text-align: center;
+}
+.nav__logo {
+  width: 24px;
+  height: 24px;
+}
+.welcome {
+  min-height: 800px;
+  padding: 2rem 1.25rem 3rem;
+  margin-bottom: 10px;
+}
+
+.hero {
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 1143px;
+  min-height: 654px;
+  background: var(--gray-200);
+  border-radius: 16px;
+}
+
+.hero-visual {
+  text-align: center;
+}
+
+.hero-visual h1 {
+  margin: 0 0 2.5rem;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  letter-spacing: 0.06em;
+}
+
+.wheel {
+  --wheel-size: clamp(280px, 78vw, 420px);
+  --ring-size: calc(var(--wheel-size) * 0.92);
+  --radius: calc(var(--wheel-size) * 0.34);
+  --outer-size: clamp(64px, 13vw, 86px);
+  --center-w: clamp(96px, 24vw, 132px);
+  --center-h: clamp(118px, 28vw, 160px);
+
+  position: relative;
+  width: var(--wheel-size);
+  height: var(--wheel-size);
+  margin: 0 auto 2rem;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  animation: wheel-spin 18s linear infinite;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--outer-size);
+  height: var(--outer-size);
+  margin-left: calc(var(--outer-size) / -2);
+  margin-top: calc(var(--outer-size) / -2);
+}
+
+.orbit-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  animation: counter-spin 18s linear infinite;
+}
+
+/* Place each avatar around the SAME center */
+.orbit-1 {
+  transform: rotate(0deg) translateY(calc(-1 * var(--radius)));
+}
+.orbit-2 {
+  transform: rotate(60deg) translateY(calc(-1 * var(--radius)));
+}
+.orbit-3 {
+  transform: rotate(120deg) translateY(calc(-1 * var(--radius)));
+}
+.orbit-4 {
+  transform: rotate(180deg) translateY(calc(-1 * var(--radius)));
+}
+.orbit-5 {
+  transform: rotate(240deg) translateY(calc(-1 * var(--radius)));
+}
+.orbit-6 {
+  transform: rotate(300deg) translateY(calc(-1 * var(--radius)));
+}
+
+.center-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(80px, 18vw, 96px);
+  height: clamp(80px, 18vw, 96px);
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.hero-content {
+  max-width: 470px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-content h2 {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+}
+
+.hero-content p {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+  color: #666;
+  font-size: 1.05rem;
+}
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.actions a {
+  color: #222;
+  text-decoration: none;
+}
+.gotbtn {
+  border: 0;
+  border-radius: 999px;
+  background: var(--gray-600);
+  color: var(--bg);
+  width: 307px;
+  height: 70px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+/******* FOOTER *******/
+
+.footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--pink-100);
+  font-size: 0.8rem;
+  color: var(--pink-500);
+  padding: 20px 12px;
+  margin-top: 30px;
+}
+
+.footer__middle {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer__link {
+  color: var(--pink-500);
+  text-decoration: none;
+}
+
+/* Desktop */
+@media (min-width: 980px) {
+  .welcome {
+    align-items: center;
+    padding: 3rem;
+  }
+
+  .hero {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero-visual {
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .wheel {
+    --wheel-size: 500px;
+    --radius: 172px;
+    --outer-size: 78px;
+    --center-w: 150px;
+    --center-h: 180px;
+  }
+}
+
+@keyframes wheel-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counter-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
 }
