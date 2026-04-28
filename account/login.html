@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comit</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script type="module" src="../js/login.js" defer></script>
+  </head>
+  <body class="page--white">
+    <main class="auth">
+      <section class="text">
+        <h1>Log in</h1>
+        <p>Use your GitHub account.</p>
+      </section>
+      <div class="account__card">
+      <section class="auth__card" aria-label="Login form">
+          <form id="login-form" class="auth__form">
+            <p class="form__text">Your email</p>
+            <input
+              class="auth__input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+            <div class="password-label-row">
+              <p class="form__text">Password</p>
+              <button
+                type="button"
+                class="password-toggle"
+                aria-label="show password"
+              >
+                <img
+                  class="password-icon"
+                  src="../icons/closedeye.png"
+                  alt="Toggle password visability"
+                />
+              </button>
+            </div>
+            <input
+              class="auth__input"
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+              minlength="8"
+            />
+            <p class="forgot__text">Forgot ?</p>
+            <p class="continue__text">or continue with</p>
+            <div class="auth__actions">
+              <button class="auth__btn auth__btn--google" type="button">
+                <img
+                  class="google-icon"
+                  src="../icons/google.png"
+                  alt="Google logo"
+                  aria-hidden="true"
+                />
+                <span class="auth__btn-text">Log in with Google</span>
+              </button>
+            </div>
+            <div class="auth__actions">
+              <button class="form__btn" type="submit">Log in</button>
+            </div>
+            <div>
+              <a class="directions_pages" href="./register.html"
+                >Create new account</a
+              >
+            </div>
+            <p class="message" id="message"></p>
+          </form>
+    </main>
+  </body>
+</html>
