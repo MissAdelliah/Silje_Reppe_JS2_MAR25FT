@@ -449,7 +449,7 @@ h2 {
   height: 32px;
   border-radius: 50%;
 }
-.feed__search input {
+.search_bar input {
   width: 100%;
   padding: 10px;
   border-radius: 8px;
