@@ -189,6 +189,7 @@ h2 {
 .btn--primary {
   background: var(--gray-600);
   color: var(--bg);
+  margin: 10px;
 }
 
 .btn--secondary {
@@ -206,6 +207,9 @@ h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.directions_pages {
+  margin: 20px;
+}
 /******* FOOTER *******/
 
 .footer {
@@ -400,4 +404,54 @@ h2 {
 .message {
   text-align: center;
   color: var(--gray-600);
+}
+
+/****feed page***/
+.feed {
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.feed__section {
+  margin-top: 2rem;
+}
+
+.feed__section h3 {
+  margin-bottom: 0.5rem;
+}
+
+.feed__hint {
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.feed__grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.post-card {
+  height: 120px;
+  border-radius: 12px;
+  background: #f0f2f5;
+  border: 1px solid #ddd;
+}
+
+.contributors__list {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.contributors__list img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.feed__search input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
