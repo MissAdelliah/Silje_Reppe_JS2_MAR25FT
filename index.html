@@ -4,30 +4,100 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Comit</title>
-    <link rel="stylesheet" href="./styles/style.css" />
-  </head>
 
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <h1 class="logo">Comit</h1>
-        <nav class="nav">
-          <a href="#/" data-link class="date-link">Feed</a>
-          <a href="#/login" data-link class="date-link">Login</a>
-          <a href="#/register" data-link class="date-link">Register</a>
-          <a href="#/profile" data-link class="date-link">Profile</a>
-          <a href="#/create-post" data-link class="date-link">Create</a>
-        </nav>
-      </div>
-    </header>
-    <main id="app" class="app-container">
-      <!----- JS will be injected here ----->
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/index.js" defer></script>
+  </head>
+  <body class="page--white">
+    <main class="welcome">
+      <section class="text">
+        <h1>WELCOME</h1>
+      </section>
+      <section class="hero" id="hero">
+        <div class="hero-visual" id="hoverZone">
+          <div class="wheel">
+            <div class="ring" id="ring">
+              <div class="orbit-item orbit-1">
+                <img
+                  src="https://images.unsplash.com/photo-1542309667-2a115d1f54c6?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="model"
+                />
+              </div>
+              <div class="orbit-item orbit-2">
+                <img
+                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="model"
+                />
+              </div>
+              <div class="orbit-item orbit-3">
+                <img
+                  src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="model"
+                />
+              </div>
+              <div class="orbit-item orbit-4">
+                <img
+                  src="https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="model"
+                />
+              </div>
+              <div class="orbit-item orbit-5">
+                <img
+                  src="https://images.unsplash.com/photo-1528892952291-009c663ce843?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="model"
+                />
+              </div>
+              <div class="orbit-item orbit-6">
+                <img
+                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="model"
+                />
+              </div>
+            </div>
+
+            <div class="center-card">
+              <img src="./images/img1.jpg" alt="model" />
+            </div>
+          </div>
+        </div>
+
+        <div class="text" id="heroContent">
+          <h2>About Comit</h2>
+          <p>
+            Connect with other developers. Share experiences and contribute to
+            the community.
+          </p>
+          <p>
+            An improvement to GitHub highlighting new features for a better user
+            experience.
+          </p>
+          <div class="actions">
+            <a href="./account/login.html" class="btn btn--primary">Log in</a>
+            <a href="./account/register.html" class="btn btn--secondary"
+              >Register</a
+            >
+          </div>
+          <a class="directions_pages" href="./post/index.html">
+            Continue as a guest
+          </a>
+        </div>
+      </section>
     </main>
-    <footer class="site-footer">
-      <div class="container">
-        <p>JavaScript 2 Course Assignment</p>
+    <footer class="footer">
+      <div class="footer__middle">
+        <a class="nav__brand" href="#/">
+          <img
+            class="nav__logo"
+            src="./icons/logo.png"
+            alt="Brand the comit logo "
+          />
+        </a>
+        <p>Terms & conditions</p>
+        <p>Contact us</p>
+        <p>comitsupport@gmail.com</p>
+        <p class="website__rights--text">&copy; 2026 COMIT</p>
       </div>
     </footer>
-    <script type="module" src="./js/app.js"></script>
   </body>
+</main>
 </html>
