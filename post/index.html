@@ -36,15 +36,18 @@
           <span>+5</span>
         </div>
       </section>
-      <section class="feed__section">
-        <h3>Rising</h3>
-        <div class="feed__grid">
-          <article class="post-card"></article>
-          <article class="post-card"></article>
-        </div>
-      </section>
+
       <section class="feed__section">
         <h3>New</h3>
+        <section class="feed-controls" aria-label="Filter posts">
+          <div class="feed-controls__row">
+            <h3 class="feed-controls__title">Filter</h3>
+
+            <nav class="filter-buttons" id="tag-nav" aria-label="Tag filters">
+              <!-- JS injects filter buttons here -->
+            </nav>
+          </div>
+        </section>
         <p class="feed__hint">To contribute you need to log in</p>
         <div class="feed__grid">
           <article class="post-card"></article>
