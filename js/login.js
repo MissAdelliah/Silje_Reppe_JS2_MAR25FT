@@ -1,6 +1,7 @@
+import { loginUser } from './api.js';
 import {
+  saveUser,
   showMessage,
-  isValidNoroffEmail,
   initPasswordToggle,
   validateForm,
   wireValidation,
@@ -38,7 +39,7 @@ loginForm?.addEventListener('submit', async (event) => {
 
     saveUser(user);
 
-    showMessage(messageBox, 'Successful!. Redirecting...');
+    showMessage(messageBox, 'Successful! Redirecting...');
 
     setTimeout(() => {
       window.location.href = '../post/index.html';

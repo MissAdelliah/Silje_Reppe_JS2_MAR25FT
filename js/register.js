@@ -1,3 +1,4 @@
+import { registerUser } from './api.js';
 import {
   showMessage,
   isValidNoroffEmail,
@@ -44,7 +45,7 @@ registerForm?.addEventListener('submit', async (event) => {
 
     await registerUser(userData);
 
-    showMessage(messageBox, 'Account created. Redirecting...');
+    showMessage(messageBox, 'Successful! Redirecting...');
 
     setTimeout(() => {
       window.location.href = './login.html';
