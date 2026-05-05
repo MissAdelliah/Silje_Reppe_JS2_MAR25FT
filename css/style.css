@@ -405,7 +405,13 @@ h2 {
   text-align: center;
   color: var(--gray-600);
 }
+.auth__input.input--valid {
+  border: 2px solid #3cff00;
+}
 
+.auth__input.input--invalid {
+  border: 2px solid #ff0000;
+}
 /****feed page***/
 .feed {
   padding: 1rem;
@@ -550,4 +556,59 @@ h2 {
   border: none;
   color: #666;
   cursor: pointer;
+}
+
+/***create post***/
+.post-card {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.post-card__header {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.post-card__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.post-card__username {
+  font-size: 0.9rem;
+}
+
+.post-card__time {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.post-card__body {
+  color: #888;
+  line-height: 1.4;
+  margin: 1rem 0;
+}
+
+.post-card__image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.post-card__actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  color: #999;
+  font-weight: 600;
+  font-size: 0.9rem;
 }

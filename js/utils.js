@@ -1,3 +1,38 @@
+/**
+ * Saves the logged-in user object to localStorage.
+ * @param {object} user - User object returned from the login API.
+ * @returns {void}
+ */
+export function saveUser(user) {
+  localStorage.setItem('user', JSON.stringify(user));
+}
+
+/**
+ * Gets the logged-in user object from localStorage.
+ * @returns {object|null} The saved user object, or null if no user exists.
+ */
+export function getUser() {
+  const user = localStorage.getItem('user');
+  return user ? JSON.parse(user) : null;
+}
+
+export function clearUser() {
+  localStorage.removeItem('user');
+}
+
+export function isLoggedIn() {
+  return Boolean(getUser()?.accessToken);
+}
+
+export function showMessage(element, text) {
+  if (!element) return;
+  element.textContent = text;
+}
+
+export function isValidNoroffEmail(email) {
+  return /^[^\s@]+@stud\.noroff\.no$/.test(email);
+}
+
 //password visability toggle (reusable)
 export function initPasswordToggle({
   inputSelector,
@@ -18,5 +53,50 @@ export function initPasswordToggle({
     input.type = isHidden ? 'text' : 'password';
     //UI feedback
     icon.src = isHidden ? openIcon : closedIcon;
+  });
+}
+export function validateField(field) {
+  const value = field.value.trim();
+  let valid = true;
+
+  if (field.required && !value) {
+    valid = false;
+  }
+
+  if (valid && field.type === 'email') {
+    valid = /^[^\s@]+@stud\.noroff\.no$/.test(value);
+  }
+
+  if (valid && field.type === 'password') {
+    valid = value.length >= 8;
+  }
+
+  field.classList.remove('input--valid', 'input--invalid');
+
+  if (value.length > 0 || field.required) {
+    field.classList.add(valid ? 'input--valid' : 'input--invalid');
+  }
+
+  return valid;
+}
+
+export function validateForm(form) {
+  let isValid = true;
+
+  form.querySelectorAll('input').forEach((input) => {
+    if (!validateField(input)) {
+      isValid = false;
+    }
+  });
+
+  return isValid;
+}
+
+export function wireValidation(form) {
+  if (!form) return;
+
+  form.querySelectorAll('input').forEach((input) => {
+    input.addEventListener('input', () => validateField(input));
+    input.addEventListener('blur', () => validateField(input));
   });
 }
