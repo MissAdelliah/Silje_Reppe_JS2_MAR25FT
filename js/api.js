@@ -149,3 +149,19 @@ export async function unfollowProfile(name) {
 
   return handleResponse(response);
 }
+
+/**
+ * Searches posts by title or body text.
+ * @param {string} query - Search text entered by the user.
+ * @returns {Promise<object[]>} Array of matching post objects.
+ */
+export async function searchPosts(query) {
+  const response = await fetch(
+    `${API_BASE}/social/posts/search?q=${encodeURIComponent(query)}&_author=true`,
+    {
+      headers: getHeaders(false),
+    },
+  );
+
+  return handleResponse(response);
+}

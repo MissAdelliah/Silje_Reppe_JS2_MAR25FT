@@ -10,8 +10,17 @@
   </head>
   <body class="page--white">
     <main class="feed">
-      <section class="search_bar">
-        <input type="text" placeholder="Search Topic, Profile, Repo" />
+      <section class="feed-search" aria-label="Search posts">
+        <input
+          id="search-input"
+          class="feed-search__input"
+          type="search"
+          placeholder="Search Topic, Profile..."
+        />
+      </section>
+
+      <section id="post-list" class="post-list">
+        <p class="status">Loading posts...</p>
       </section>
       <section class="feed__contributors">
         <h3>Top contributors</h3>
@@ -36,6 +45,12 @@
           <span>+5</span>
         </div>
       </section>
+      <section class="post-topics" aria-label="Post topics">
+        <h2 class="section-title">Post Topics</h2>
+        <p>If I started from scratch I would...</p>
+        <p>I wrote an article about...</p>
+        <p>Did I just accidentally develop a new..</p>
+      </section>
 
       <section class="feed__section">
         <h3>New</h3>
@@ -49,15 +64,6 @@
           </div>
         </section>
         <p class="feed__hint">To contribute you need to log in</p>
-        <div class="feed__grid">
-          <article class="post-card"></article>
-          <article class="post-card"></article>
-        </div>
-      </section>
-      <section class="feed__section">
-        <h3>I need help</h3>
-        <p class="feed__hint">To contribute you need to log in</p>
-
         <div class="feed__grid">
           <article class="post-card"></article>
           <article class="post-card"></article>
