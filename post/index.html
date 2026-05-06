@@ -3,12 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Comit</title>
+    <meta name="description" content="Comit social media feed." />
+    <title>Feed | Comit</title>
 
     <link rel="stylesheet" href="../css/style.css" />
     <script type="module" src="../js/index.js" defer></script>
   </head>
+
   <body class="page--white">
+    <header class="feed-header">
+      <a class="feed-header__brand" href="../index.html">
+        <img
+          class="feed-header__logo"
+          src="../icons/logo.png"
+          alt="Comit logo"
+        />
+        <span class="feed-header__title">Comit</span>
+      </a>
+
+      <a class="feed-header__login" href="../account/register.html">
+        <img src="../icons/register.png" alt="Register or log in" />
+      </a>
+    </header>
+
     <main class="feed">
       <section class="feed-search" aria-label="Search posts">
         <input
@@ -19,55 +36,62 @@
         />
       </section>
 
-      <section id="post-list" class="post-list">
-        <p class="status">Loading posts...</p>
-      </section>
-      <section class="feed__contributors">
-        <h3>Top contributors</h3>
-        <div class="contributors__list">
-          <img src="../images/img1.jpg" alt="model" />
-          <img
-            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="model"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="model"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1528892952291-009c663ce843?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="model"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="model"
-          />
+      <section class="feed-top">
+        <h2>Top contributors</h2>
+        <div class="contributors">
+          <img src="https://placehold.co/32x32" alt="" />
+          <img src="https://placehold.co/32x32" alt="" />
+          <img src="https://placehold.co/32x32" alt="" />
           <span>+5</span>
         </div>
       </section>
-      <section class="post-topics" aria-label="Post topics">
-        <h2 class="section-title">Post Topics</h2>
+
+      <section class="post-topics">
+        <h2>Post Topics</h2>
         <p>If I started from scratch I would...</p>
         <p>I wrote an article about...</p>
-        <p>Did I just accidentally develop a new..</p>
+        <p>Did I just accidentally develop a new...</p>
       </section>
 
-      <section class="feed__section">
-        <h3>New</h3>
-        <section class="feed-controls" aria-label="Filter posts">
-          <div class="feed-controls__row">
-            <h3 class="feed-controls__title">Filter</h3>
+      <section class="feed-posts">
+        <h2>Following</h2>
+        <p class="feed-hint" id="following-message"></p>
+        <section id="following-post-list" class="post-list"></section>
+      </section>
 
-            <nav class="filter-buttons" id="tag-nav" aria-label="Tag filters">
-              <!-- JS injects filter buttons here -->
-            </nav>
+      <section class="feed-posts">
+        <h2>All posts</h2>
+
+        <section class="feed-filter" aria-label="Filter posts">
+          <h3 class="feed-filter__title">Filter posts :</h3>
+
+          <div class="feed-filter__buttons">
+            <button
+              class="filter-btn filter-btn--active"
+              type="button"
+              data-tag=""
+            >
+              All
+            </button>
+            <button class="filter-btn" type="button" data-tag="JavaScript">
+              JavaScript
+            </button>
+            <button class="filter-btn" type="button" data-tag="Python">
+              Python
+            </button>
+            <button class="filter-btn" type="button" data-tag="C++">C++</button>
+            <button class="filter-btn" type="button" data-tag="Bugs">
+              Bugs
+            </button>
+            <button class="filter-btn" type="button" data-tag="Memes">
+              Memes
+            </button>
           </div>
         </section>
-        <p class="feed__hint">To contribute you need to log in</p>
-        <div class="feed__grid">
-          <article class="post-card"></article>
-          <article class="post-card"></article>
-        </div>
+
+        <section id="all-post-list" class="post-list">
+          <p class="status">Loading posts...</p>
+        </section>
       </section>
     </main>
   </body>

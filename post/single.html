@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="View a single Comit post." />
+    <title>Post | Comit</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <script type="module" src="../js/single.js" defer></script>
+  </head>
+
+  <body class="page--white">
+    <header class="single-header">
+      <a class="single-header__brand" href="./index.html">
+        <img
+          class="single-header__logo"
+          src="../icons/logo.png"
+          alt="Comit logo"
+        />
+        <span>Comit</span>
+      </a>
+
+      <a
+        class="single-header__menu"
+        href="./create.html"
+        aria-label="Create post"
+      >
+        ...
+      </a>
+    </header>
+
+    <main class="single-page">
+      <section class="single-author-card" id="author-card">
+        <a class="single-author-card__avatar-link" href="#">
+          <img
+            class="single-author-card__avatar"
+            src="https://placehold.co/60x60?text=U"
+            alt="Author avatar"
+          />
+        </a>
+
+        <div class="single-author-card__info">
+          <a class="single-author-card__name" href="#">Loading...</a>
+          <p class="single-author-card__bio"></p>
+          <p class="single-author-card__stats"></p>
+
+          <button
+            class="btn btn--secondary single-author-card__follow"
+            id="follow-btn"
+            type="button"
+            hidden
+          >
+            Follow
+          </button>
+        </div>
+      </section>
+
+      <section id="single-post" class="single-post">
+        <p class="status">Loading post...</p>
+      </section>
+    </main>
+  </body>
+</html>

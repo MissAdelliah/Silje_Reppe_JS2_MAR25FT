@@ -9,42 +9,32 @@
     <script type="module" src="../js/index.js" defer></script>
   </head>
   <body>
-    <main class="profile">
-      <section class="search_bar">
-        <input type="text" placeholder="Search Topic, Profile, Repo" />
-      </section>
-      <section class="profile__card">
-        <img class="profile__avatar" src="avatar.jpg" alt="User avatar" />
-
-        <div class="profile__info">
-          <h3 class="profile__name">Bot_Nicholas</h3>
-          <p class="profile__bio">Owner of codework - Fullstack dev</p>
-          <p class="profile__stats">1k followers · 364 following</p>
-          <button class="btn btn--follow">Follow</button>
+    <main class="profile-page">
+      <section class="profile-card">
+        <img class="profile-card__avatar" src="" alt="Profile avatar" />
+        <div class="profile-card__info">
+          <h1 class="profile-card__name"></h1>
+          <p class="profile-card__stats"></p>
+          <p class="profile-card__bio"></p>
         </div>
+
+        <button class="btn btn--secondary" id="follow-btn" type="button" hidden>
+          Follow
+        </button>
       </section>
-      <section class="profile__tabs">
-        <button class="tab active">Posts</button>
-        <button class="tab">Contributions</button>
-      </section>
-      <section class="profile__posts">
-        <article class="post-card">
-          <div class="post-card__header">
-            <img src="avatar.jpg" alt="" />
-            <span>Bot_Nicholas</span>
-            <span class="post-time">11:33 am</span>
-          </div>
 
-          <p class="post-card__text">Text here...</p>
+      <h2 class="profile-title">Activity</h2>
 
-          <img class="post-card__image" src="post.jpg" alt="" />
+      <a
+        class="create-shortcut"
+        href="../post/create.html"
+        aria-label="Create post"
+      >
+        +
+      </a>
 
-          <div class="post-card__actions">
-            <button>Like</button>
-            <button>Comment</button>
-            <button>Contribute</button>
-          </div>
-        </article>
+      <section id="profile-posts" class="post-list">
+        <p class="status">Loading posts...</p>
       </section>
     </main>
   </body>
