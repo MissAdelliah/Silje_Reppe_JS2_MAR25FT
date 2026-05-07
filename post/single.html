@@ -3,15 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile | Comit</title>
+    <meta name="description" content="View a single Comit post." />
+    <title>Post | Comit</title>
 
     <link rel="stylesheet" href="../css/style.css" />
-    <script type="module" src="../js/profile.js" defer></script>
+    <script type="module" src="../js/single.js" defer></script>
   </head>
 
   <body class="page--white">
     <header class="feed-header">
-      <a class="feed-header__brand" href="../post/index.html">
+      <a class="feed-header__brand" href="../index.html">
         <img
           class="feed-header__logo"
           src="../icons/logo.png"
@@ -41,18 +42,20 @@
         </a>
 
         <div class="feed-header__dropdown" id="feed-dropdown" hidden>
-          <a href="../post/index.html">Feed</a>
+          <a href="./index.html">Feed</a>
+          <a href="./create.html">Create</a>
+          <a href="../account/profile.html">Profile</a>
           <button type="button" id="logout-btn">Log out</button>
         </div>
       </nav>
     </header>
-    <main class="profile-page">
-      <section class="single-author-card profile-author-card" id="profile-card">
+    <main class="single-page">
+      <section class="single-author-card" id="author-card">
         <a class="single-author-card__avatar-link" href="#">
           <img
             class="single-author-card__avatar"
             src="https://placehold.co/60x60?text=U"
-            alt="Profile avatar"
+            alt="Author avatar"
           />
         </a>
 
@@ -72,18 +75,8 @@
         </div>
       </section>
 
-      <h2 class="profile-title">Activity</h2>
-
-      <a
-        class="create-shortcut"
-        href="../post/create.html"
-        aria-label="Create post"
-      >
-        +
-      </a>
-
-      <section id="profile-posts" class="post-list">
-        <p class="status">Loading posts...</p>
+      <section id="single-post" class="single-post">
+        <p class="status">Loading post...</p>
       </section>
     </main>
   </body>
