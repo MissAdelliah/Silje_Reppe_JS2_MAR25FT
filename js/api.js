@@ -223,6 +223,22 @@ export async function searchPosts(query) {
 
   return handleResponse(response);
 }
+/**
+ * Searches profiles by name or bio text.
+ *
+ * @param {string} query - Search text entered by the user.
+ * @returns {Promise<object[]>} Array of matching profile objects.
+ */
+export async function searchProfiles(query) {
+  const response = await fetch(
+    `${API_BASE}/social/profiles/search?q=${encodeURIComponent(query)}`,
+    {
+      headers: getHeaders(true),
+    },
+  );
+
+  return handleResponse(response);
+}
 
 /**
  * Fetches posts from profiles that the logged-in user follows.

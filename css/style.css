@@ -588,9 +588,14 @@ h2 {
   border-radius: 6px;
   background: transparent;
   color: var(--gray-400);
-  padding: 0.35rem 1rem;
+  padding: 0.4rem 1rem;
   cursor: pointer;
   transition: 0.2s ease;
+}
+.feed-filter__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .filter-btn--active {
@@ -604,7 +609,30 @@ h2 {
   text-decoration: none;
   cursor: pointer;
 }
+.profile-search-results {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
 
+.profile-search-result {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #222;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.profile-search-result img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
 /**profile**/
 .profile-page {
   max-width: 430px;

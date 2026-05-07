@@ -51,13 +51,19 @@
     </header>
 
     <main class="feed">
-      <section class="feed-search" aria-label="Search posts">
+      <section class="feed-search" aria-label="Search posts and profiles">
         <input
           id="search-input"
           class="feed-search__input"
           type="search"
           placeholder="Search Topic, Profile..."
         />
+
+        <section
+          id="profile-search-results"
+          class="profile-search-results"
+          hidden
+        ></section>
       </section>
 
       <section class="feed-top">
