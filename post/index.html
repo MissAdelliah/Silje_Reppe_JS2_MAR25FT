@@ -21,9 +21,33 @@
         <span class="feed-header__title">Comit</span>
       </a>
 
-      <a class="feed-header__login" href="../account/register.html">
-        <img src="../icons/register.png" alt="Register or log in" />
-      </a>
+      <nav class="feed-header__nav" aria-label="Feed navigation">
+        <button
+          class="feed-header__menu-btn"
+          id="feed-menu-btn"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          hidden
+        >
+          ...
+        </button>
+
+        <a
+          class="feed-header__login"
+          id="feed-login-link"
+          href="../account/register.html"
+        >
+          <img src="../icons/register.png" alt="Register or log in" />
+        </a>
+
+        <div class="feed-header__dropdown" id="feed-dropdown" hidden>
+          <a href="./index.html">Feed</a>
+          <a href="./create.html">Create</a>
+          <a href="../account/profile.html">Profile</a>
+          <button type="button" id="logout-btn">Log out</button>
+        </div>
+      </nav>
     </header>
 
     <main class="feed">
@@ -65,27 +89,8 @@
         <section class="feed-filter" aria-label="Filter posts">
           <h3 class="feed-filter__title">Filter posts :</h3>
 
-          <div class="feed-filter__buttons">
-            <button
-              class="filter-btn filter-btn--active"
-              type="button"
-              data-tag=""
-            >
-              All
-            </button>
-            <button class="filter-btn" type="button" data-tag="JavaScript">
-              JavaScript
-            </button>
-            <button class="filter-btn" type="button" data-tag="Python">
-              Python
-            </button>
-            <button class="filter-btn" type="button" data-tag="C++">C++</button>
-            <button class="filter-btn" type="button" data-tag="Bugs">
-              Bugs
-            </button>
-            <button class="filter-btn" type="button" data-tag="Memes">
-              Memes
-            </button>
+          <div class="feed-filter__buttons" id="tag-nav">
+            <!-- JS creates buttons here -->
           </div>
         </section>
 

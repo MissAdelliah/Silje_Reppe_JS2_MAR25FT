@@ -435,7 +435,7 @@ h2 {
 .feed-header__title {
   color: var(--ink);
   font-size: var(--fs-stan-mobile);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
 }
 
 .feed-header__login img {
@@ -444,6 +444,43 @@ h2 {
 }
 
 /***feed***/
+.feed-header__nav {
+  position: relative;
+}
+
+.feed-header__menu-btn {
+  border: none;
+  background: transparent;
+  font-size: 1.6rem;
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+}
+
+.feed-header__dropdown {
+  position: absolute;
+  right: 0;
+  top: 2rem;
+  display: grid;
+  gap: 0.5rem;
+  min-width: 130px;
+  background: var(--bg);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  padding: 0.75rem;
+  z-index: 10;
+}
+
+.feed-header__dropdown a,
+.feed-header__dropdown button {
+  background: none;
+  border: none;
+  color: var(--ink);
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+}
+
 .feed {
   max-width: 430px;
   margin: 0 auto;
@@ -489,6 +526,12 @@ h2 {
 .status {
   color: var(--gray-400);
   font-size: var(--fs-stan-mobile);
+}
+#all-post-list,
+#following-post-list {
+  max-height: 760px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
 }
 
 .post-list {
