@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit post | Comit</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <script type="module" src="../js/edit.js" defer></script>
+  </head>
+
+  <body class="page--white">
+    <header class="feed-header">
+      <a class="feed-header__brand" href="../post/index.html">
+        <img
+          class="feed-header__logo"
+          src="../icons/logo.png"
+          alt="Comit logo"
+        />
+        <span class="feed-header__title">Comit</span>
+      </a>
+
+      <nav class="feed-header__nav" aria-label="Main navigation">
+        <button
+          class="feed-header__menu-btn"
+          id="feed-menu-btn"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          hidden
+        >
+          ...
+        </button>
+
+        <a
+          class="feed-header__login"
+          id="feed-login-link"
+          href="../account/login.html"
+        >
+          <img src="../icons/register.png" alt="Log in or register" />
+        </a>
+
+        <div class="feed-header__dropdown" id="feed-dropdown" hidden>
+          <a href="../post/index.html">Feed</a>
+          <a href="../post/create.html">Create</a>
+          <a href="../account/profile.html">Profile</a>
+          <button type="button" id="logout-btn">Log out</button>
+        </div>
+      </nav>
+    </header>
+    <main class="create-page">
+      <form id="edit-form" class="create-form">
+        <label class="create-form__label" for="title">Topic</label>
+        <input
+          class="create-form__input"
+          id="title"
+          name="title"
+          type="text"
+          placeholder="Write topic here"
+          required
+          maxlength="280"
+        />
+
+        <label class="create-form__label" for="body">Text</label>
+        <textarea
+          class="create-form__textarea"
+          id="body"
+          name="body"
+          placeholder="Write text here"
+          rows="7"
+          maxlength="280"
+        ></textarea>
+
+        <label class="create-form__label" for="mediaUrl">Image URL</label>
+        <input
+          class="create-form__input"
+          id="mediaUrl"
+          name="mediaUrl"
+          type="url"
+          placeholder="Paste image URL"
+        />
+
+        <img
+          class="create-form__preview"
+          id="media-preview"
+          src="https://placehold.co/600x300?text=Post+image"
+          alt="Post image preview"
+        />
+
+        <label class="create-form__label" for="tags">Tags</label>
+        <input
+          class="create-form__input create-form__input--small"
+          id="tags"
+          name="tags"
+          type="text"
+          placeholder="JavaScript, Bugs"
+        />
+
+        <p class="message" id="message"></p>
+
+        <button class="btn btn--primary create-form__submit" type="submit">
+          Save changes
+        </button>
+
+        <button class="btn delete-btn" id="delete-btn" type="button">
+          Delete post
+        </button>
+      </form>
+    </main>
+  </body>
+</html>
