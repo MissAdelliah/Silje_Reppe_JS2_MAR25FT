@@ -102,4 +102,3 @@ form?.addEventListener('submit', async (event) => {
 });
 
 renderHeaderAvatar();
-console.log('NEW create.js loaded');

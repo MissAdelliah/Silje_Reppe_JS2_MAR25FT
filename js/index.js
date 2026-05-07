@@ -1,7 +1,5 @@
 import { getPosts } from './api.js';
 
-console.log('INDEX JS LOADED');
-
 const postList = document.querySelector('#all-post-list');
 
 function formatPostTime(isoString) {
@@ -14,8 +12,6 @@ function formatPostTime(isoString) {
 }
 
 function createCard(post) {
-  console.log('Rendering post:', post.id);
-
   const card = document.createElement('article');
   card.className = 'post-card post-card--clickable';
 
@@ -48,7 +44,6 @@ function createCard(post) {
   card.append(header, body, image);
 
   card.addEventListener('click', () => {
-    console.log('CLICKED POST:', post.id);
     window.location.href = `./single.html?id=${post.id}`;
   });
 
@@ -73,12 +68,8 @@ async function loadPosts() {
     postList.innerHTML = '<p class="status">Loading posts...</p>';
 
     const posts = await getPosts();
-
-    console.log('POSTS FROM API:', posts);
-
     renderPosts(posts);
   } catch (error) {
-    console.error(error);
     postList.innerHTML = `<p class="status">${error.message}</p>`;
   }
 }

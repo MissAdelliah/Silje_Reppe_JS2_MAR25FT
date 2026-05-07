@@ -38,9 +38,7 @@ loginForm?.addEventListener('submit', async (event) => {
     const user = await loginUser(userData);
 
     saveUser(user);
-
     showMessage(messageBox, 'Successful! Redirecting...');
-
     setTimeout(() => {
       window.location.href = '../post/index.html';
     }, 500);

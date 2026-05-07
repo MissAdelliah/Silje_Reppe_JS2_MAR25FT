@@ -42,14 +42,10 @@ function renderAuthorCard(profile) {
 
   authorAvatar.src = profile.avatar?.url || 'https://placehold.co/60x60?text=U';
   authorAvatar.alt = profile.avatar?.alt || `${profile.name} avatar`;
-
   authorAvatarLink.href = profileUrl;
-
   authorName.textContent = profile.name;
   authorName.href = profileUrl;
-
   authorBio.textContent = profile.bio || 'No bio';
-
   authorStats.textContent = `${profile._count?.followers || 0} followers · ${
     profile._count?.following || 0
   } following`;
