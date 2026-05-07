@@ -2,7 +2,9 @@
   font-family: 'Inter', sans-serif, Tahoma, Geneva, Verdana;
   box-sizing: border-box;
 }
-
+[hidden] {
+  display: none !important;
+}
 :root {
   /********** FONT WEIGHTS **********/
   --fw-light: 300;
@@ -569,6 +571,12 @@ h2 {
   color: var(--gray-400);
   font-size: var(--fs-stan-mobile);
 }
+.post-card__title {
+  font-size: var(--fs-bigstan-mobile);
+  margin: 1rem 0 0.35rem;
+  color: var(--ink);
+  font-weight: var(--fw-medium);
+}
 
 .post-card__body {
   color: var(--gray-400);
@@ -647,6 +655,34 @@ h2 {
   align-items: start;
   margin-bottom: 2rem;
 }
+.post-card__header {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.post-card__time {
+  grid-column: 3;
+  grid-row: 1;
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+.post-card__edit-btn {
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: end;
+  margin-top: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--gray-400);
+  border-radius: 6px;
+  background: var(--gray-200);
+  color: var(--ink);
+  font-size: var(--fs-stan-mobile);
+  font-weight: var(--fw-light);
+  text-decoration: none;
+}
 
 .profile-card__avatar {
   width: 60px;
@@ -662,16 +698,8 @@ h2 {
 .profile-card__stats,
 .profile-card__bio {
   color: var(--gray-400);
-  font-size: 0.8rem;
+  font-size: var(--fs-stan-mobile);
   margin: 0.25rem 0;
-}
-
-.profile-card__edit {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 0.3rem 0.7rem;
-  text-decoration: none;
-  color: var(--ink);
 }
 
 .profile-title {
@@ -688,7 +716,7 @@ h2 {
   align-items: center;
   justify-content: center;
   height: 48px;
-  border: 1px solid #222;
+  border: 1px solid var(--ink);
   border-radius: 6px;
   margin: 1rem 0 2rem;
   color: #222;
@@ -791,6 +819,10 @@ h2 {
 }
 
 /***Single post***/
+
+.follow__btn {
+  border-radius: 4px;
+}
 
 .single-header {
   max-width: 430px;

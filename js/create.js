@@ -1,5 +1,5 @@
 import { createPost } from './api.js';
-import { getUser, requireLogin, showMessage } from './utils.js';
+import { getUser, clearUser, requireLogin, showMessage } from './utils.js';
 
 requireLogin('../account/login.html');
 
@@ -8,6 +8,11 @@ const messageBox = document.querySelector('#message');
 const mediaUrlInput = document.querySelector('#mediaUrl');
 const mediaPreview = document.querySelector('#media-preview');
 const headerAvatar = document.querySelector('#header-avatar');
+
+const loginLink = document.querySelector('#feed-login-link');
+const menuBtn = document.querySelector('#feed-menu-btn');
+const dropdown = document.querySelector('#feed-dropdown');
+const logoutBtn = document.querySelector('#logout-btn');
 
 const user = getUser();
 
@@ -23,6 +28,38 @@ function parseTags(tagsString) {
     .split(',')
     .map((tag) => tag.trim())
     .filter(Boolean);
+}
+
+function initHeader() {
+  if (!loginLink || !menuBtn) return;
+
+  if (!user?.accessToken) {
+    loginLink.hidden = false;
+    menuBtn.hidden = true;
+    return;
+  }
+
+  loginLink.hidden = true;
+  menuBtn.hidden = false;
+
+  menuBtn.addEventListener('click', () => {
+    if (!dropdown) return;
+
+    const isOpen = !dropdown.hasAttribute('hidden');
+
+    if (isOpen) {
+      dropdown.setAttribute('hidden', '');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    } else {
+      dropdown.removeAttribute('hidden');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  logoutBtn?.addEventListener('click', () => {
+    clearUser();
+    window.location.href = '../account/login.html';
+  });
 }
 
 function renderHeaderAvatar() {
@@ -45,12 +82,12 @@ function buildPostData(formElement) {
   const values = Object.fromEntries(formData);
 
   const postData = {
-    title: values.title.trim(),
-    body: values.body.trim(),
-    tags: parseTags(values.tags),
+    title: values.title?.trim() || '',
+    body: values.body?.trim() || '',
+    tags: parseTags(values.tags || ''),
   };
 
-  const imageUrl = values.mediaUrl.trim();
+  const imageUrl = values.mediaUrl?.trim() || '';
 
   if (imageUrl) {
     postData.media = {
@@ -77,6 +114,7 @@ form?.addEventListener('submit', async (event) => {
     showMessage(messageBox, 'Topic is required.');
     return;
   }
+
   if (postData.title.length > 280) {
     showMessage(messageBox, 'Topic must be 280 characters or less.');
     return;
@@ -86,6 +124,7 @@ form?.addEventListener('submit', async (event) => {
     showMessage(messageBox, 'Post text must be 280 characters or less.');
     return;
   }
+
   try {
     showMessage(messageBox, 'Publishing...');
 
@@ -101,4 +140,5 @@ form?.addEventListener('submit', async (event) => {
   }
 });
 
+initHeader();
 renderHeaderAvatar();

@@ -6,9 +6,20 @@ import {
   deletePost,
 } from './api.js';
 
-import { getUser, requireLogin, showMessage, formatPostTime } from './utils.js';
+import {
+  getUser,
+  clearUser,
+  requireLogin,
+  showMessage,
+  formatPostTime,
+} from './utils.js';
 
 requireLogin('../account/login.html');
+
+const loginLink = document.querySelector('#feed-login-link');
+const menuBtn = document.querySelector('#feed-menu-btn');
+const dropdown = document.querySelector('#feed-dropdown');
+const logoutBtn = document.querySelector('#logout-btn');
 
 const authorAvatarLink = document.querySelector(
   '.single-author-card__avatar-link',
@@ -32,9 +43,48 @@ function getProfileUrl(name) {
   return `../account/profile.html?name=${encodeURIComponent(name)}`;
 }
 
+function isOwnProfile(profileName) {
+  return profileName?.toLowerCase() === user?.name?.toLowerCase();
+}
+
 function checkIsFollowing(profile) {
   const followers = profile.followers || [];
-  return followers.some((follower) => follower.name === user?.name);
+
+  return followers.some(
+    (follower) => follower.name?.toLowerCase() === user?.name?.toLowerCase(),
+  );
+}
+
+function initHeader() {
+  if (!loginLink || !menuBtn) return;
+
+  if (!user?.accessToken) {
+    loginLink.hidden = false;
+    menuBtn.hidden = true;
+    return;
+  }
+
+  loginLink.hidden = true;
+  menuBtn.hidden = false;
+
+  menuBtn.addEventListener('click', () => {
+    if (!dropdown) return;
+
+    const isOpen = !dropdown.hasAttribute('hidden');
+
+    if (isOpen) {
+      dropdown.setAttribute('hidden', '');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    } else {
+      dropdown.removeAttribute('hidden');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  logoutBtn?.addEventListener('click', () => {
+    clearUser();
+    window.location.href = '../account/login.html';
+  });
 }
 
 function renderAuthorCard(profile) {
@@ -42,27 +92,31 @@ function renderAuthorCard(profile) {
 
   authorAvatar.src = profile.avatar?.url || 'https://placehold.co/60x60?text=U';
   authorAvatar.alt = profile.avatar?.alt || `${profile.name} avatar`;
+
   authorAvatarLink.href = profileUrl;
+
   authorName.textContent = profile.name;
   authorName.href = profileUrl;
+
   authorBio.textContent = profile.bio || 'No bio';
+
   authorStats.textContent = `${profile._count?.followers || 0} followers · ${
     profile._count?.following || 0
   } following`;
 
-  const isOwnProfile = profile.name === user?.name;
-
-  if (isOwnProfile) {
+  if (isOwnProfile(profile.name)) {
     followBtn.hidden = true;
+    followBtn.disabled = true;
     return;
   }
 
   followBtn.hidden = false;
+  followBtn.disabled = false;
   followBtn.textContent = isFollowing ? 'Unfollow' : 'Follow';
 }
 
 function renderSinglePost(post) {
-  const isOwner = post.author?.name === user?.name;
+  const isOwner = isOwnProfile(post.author?.name);
 
   singlePost.innerHTML = '';
 
@@ -95,12 +149,16 @@ function renderSinglePost(post) {
   image.src = post.media?.url || 'https://placehold.co/600x300?text=Post';
   image.alt = post.media?.alt || post.title || 'Post image';
 
-  const profileLink = document.createElement('a');
-  profileLink.className = 'single-post-card__author-link';
-  profileLink.href = getProfileUrl(post.author?.name);
-  profileLink.textContent = `View ${post.author?.name}'s profile`;
+  article.append(header, title, body, image);
 
-  article.append(header, title, body, image, profileLink);
+  if (post.author?.name) {
+    const profileLink = document.createElement('a');
+    profileLink.className = 'single-post-card__author-link';
+    profileLink.href = getProfileUrl(post.author.name);
+    profileLink.textContent = `View ${post.author.name}'s profile`;
+
+    article.append(profileLink);
+  }
 
   if (isOwner) {
     const ownerActions = document.createElement('div');
@@ -112,7 +170,7 @@ function renderSinglePost(post) {
     editLink.textContent = 'Edit post';
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.className = 'btn btn--secondary';
+    deleteBtn.className = 'btn btn--danger';
     deleteBtn.type = 'button';
     deleteBtn.textContent = 'Delete post';
 
@@ -162,7 +220,13 @@ async function loadSinglePost() {
 }
 
 followBtn?.addEventListener('click', async () => {
-  if (!currentAuthorProfile) return;
+  if (!currentAuthorProfile || !user) return;
+
+  if (isOwnProfile(currentAuthorProfile.name)) {
+    followBtn.hidden = true;
+    followBtn.disabled = true;
+    return;
+  }
 
   try {
     followBtn.disabled = true;
@@ -175,12 +239,16 @@ followBtn?.addEventListener('click', async () => {
 
     currentAuthorProfile = await getProfile(currentAuthorProfile.name);
     isFollowing = checkIsFollowing(currentAuthorProfile);
+
     renderAuthorCard(currentAuthorProfile);
   } catch (error) {
     singlePost.innerHTML = `<p class="status">${error.message}</p>`;
   } finally {
-    followBtn.disabled = false;
+    if (!isOwnProfile(currentAuthorProfile?.name)) {
+      followBtn.disabled = false;
+    }
   }
 });
 
+initHeader();
 loadSinglePost();

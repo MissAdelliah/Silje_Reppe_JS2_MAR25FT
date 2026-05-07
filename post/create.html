@@ -27,6 +27,28 @@
           alt="Profile avatar"
         />
       </a>
+      <nav class="feed-header__nav" aria-label="Feed navigation">
+        <button
+          class="feed-header__menu-btn"
+          id="feed-menu-btn"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          hidden
+        >
+          ...
+        </button>
+
+        <a
+          class="feed-header__login"
+          id="feed-login-link"
+          href="../account/register.html"
+        >
+        </a>
+        <div class="feed-header__dropdown" id="feed-dropdown" hidden>
+          <button type="button" id="logout-btn">Log out</button>
+        </div>
+      </nav>
     </header>
 
     <main class="create-page">

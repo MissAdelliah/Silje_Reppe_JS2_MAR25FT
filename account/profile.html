@@ -3,24 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Comit</title>
+    <title>Profile | Comit</title>
 
     <link rel="stylesheet" href="../css/style.css" />
-    <script type="module" src="../js/index.js" defer></script>
+    <script type="module" src="../js/profile.js" defer></script>
   </head>
-  <body>
-    <main class="profile-page">
-      <section class="profile-card">
-        <img class="profile-card__avatar" src="" alt="Profile avatar" />
-        <div class="profile-card__info">
-          <h1 class="profile-card__name"></h1>
-          <p class="profile-card__stats"></p>
-          <p class="profile-card__bio"></p>
-        </div>
 
-        <button class="btn btn--secondary" id="follow-btn" type="button" hidden>
-          Follow
+  <body class="page--white">
+    <header class="feed-header">
+      <a class="feed-header__brand" href="../index.html">
+        <img
+          class="feed-header__logo"
+          src="../icons/logo.png"
+          alt="Comit logo"
+        />
+        <span class="feed-header__title">Comit</span>
+      </a>
+
+      <nav class="feed-header__nav" aria-label="Feed navigation">
+        <button
+          class="feed-header__menu-btn"
+          id="feed-menu-btn"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          hidden
+        >
+          ...
         </button>
+
+        <a
+          class="feed-header__login"
+          id="feed-login-link"
+          href="../account/register.html"
+        >
+          <img src="../icons/register.png" alt="Register or log in" />
+        </a>
+
+        <div class="feed-header__dropdown" id="feed-dropdown" hidden>
+          <a href="./index.html">Feed</a>
+          <button type="button" id="logout-btn">Log out</button>
+        </div>
+      </nav>
+    </header>
+    <main class="profile-page">
+      <section class="single-author-card profile-author-card" id="profile-card">
+        <a class="single-author-card__avatar-link" href="#">
+          <img
+            class="single-author-card__avatar"
+            src="https://placehold.co/60x60?text=U"
+            alt="Profile avatar"
+          />
+        </a>
+
+        <div class="single-author-card__info">
+          <a class="single-author-card__name" href="#">Loading...</a>
+          <p class="single-author-card__bio"></p>
+          <p class="single-author-card__stats"></p>
+
+          <button
+            class="btn follow__btn single-author-card__follow"
+            id="follow-btn"
+            type="button"
+            hidden
+          >
+            Follow
+          </button>
+        </div>
       </section>
 
       <h2 class="profile-title">Activity</h2>

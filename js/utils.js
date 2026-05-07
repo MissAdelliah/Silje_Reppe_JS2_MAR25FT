@@ -213,12 +213,11 @@ export function createPostCard(
   }
 
   header.append(avatar, username, time);
-
   if (showEdit) {
     const editLink = document.createElement('a');
-    editLink.className = 'post-card__edit';
+    editLink.className = 'post-card__edit-btn';
     editLink.href = `../post/edit.html?id=${post.id}`;
-    editLink.textContent = 'Edit post';
+    editLink.textContent = 'Edit';
 
     editLink.addEventListener('click', (event) => {
       event.stopPropagation();
@@ -226,17 +225,20 @@ export function createPostCard(
 
     header.append(editLink);
   }
+  const title = document.createElement('h3');
+  title.className = 'post-card__title';
+  title.textContent = post.title || 'Untitled post';
 
   const body = document.createElement('p');
   body.className = 'post-card__body';
-  body.textContent = post.body || post.title || 'Text here';
+  body.textContent = post.body || 'No post text.';
 
   const image = document.createElement('img');
   image.className = 'post-card__image';
   image.src = post.media?.url || 'https://placehold.co/600x300?text=Post';
   image.alt = post.media?.alt || post.title || 'Post image';
 
-  article.append(header, body, image);
+  article.append(header, title, body, image);
 
   if (clickable) {
     article.classList.add('post-card--clickable');
